@@ -37,7 +37,7 @@
                     <td>{{ $dk->name }}</td>
                     <td>{{ $dk->specialization }}</td>
                     <td>
-                        <a href="{{ route('admin.dokter.edit', $dk->id) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('admin.dokter.edit', $dk->id) }}" class="btn btn-warning">Edit Spesialisasi</a>
                         <form action="{{ route('admin.dokter.destroy', $dk->id) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')

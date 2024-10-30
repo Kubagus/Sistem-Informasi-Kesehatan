@@ -8,9 +8,8 @@
         <div class="col-lg-3 col-6">
             <div class="small-box bg-info">
                 <div class="inner">
-                    {{-- <h3>{{ $totalUsers }}</h3> --}}
-                    <h3>10</h3>
-                    <p>Total Pasien</p>
+                    <h3>{{ $totalUser }}</h3>
+                    <p>Total User</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-users"></i>
@@ -21,20 +20,17 @@
             </div>
         </div>
 
-        <!-- Total Categories -->
-        <div class="col-lg-3 col-6">
+        <!-- Total Role -->
+       <div class="col-lg-3 col-6">
             <div class="small-box bg-success">
                 <div class="inner">
-                    <h3>10</h3>
-                    <p>Total Pemeriksaan</p>
+                    <h3>{{ $totalRole }}</h3>
+                    <p>Total Role</p>
                 </div>
                 <div class="icon">
-                    <i class="fas fa-list"></i>
+                    <i class="fas fa-users"></i>
                 </div>
-                {{-- <a href="{{ route('categories.index') }}" class="small-box-footer">
-                    View <i class="fas fa-arrow-circle-right"></i>
-                </a> --}}
-                <a href="#" class="small-box-footer">
+                <a href="{{ route('admin.role.index') }}" class="small-box-footer">
                     View <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
@@ -45,13 +41,13 @@
             <div class="small-box bg-primary">
                 <div class="inner">
                     {{-- <h3>{{ $totalProducts }}</h3> --}}
-                    <h3>10</h3>
-                    <p>Jadwal Dokter</p>
+                    <h3>{{$totalDokter}}</h3>
+                    <p>Daftar Dokter</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-box"></i>
                 </div>
-                <a href="#" class="small-box-footer">
+                <a href="{{ route('admin.dokter.index') }}" class="small-box-footer">
                     View <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>

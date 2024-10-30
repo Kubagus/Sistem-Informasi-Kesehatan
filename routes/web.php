@@ -32,9 +32,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Admin Routes
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin/home', function () {
+    Route::get('/admin/home', [AdminController::class, 'HomeIndex'], function () {
         return view('admin.home');
     })->name('admin.home');
+//  Route::get('/admin/home', [AdminController::class, 'HomeIndex']);
 
     Route::prefix('admin')->name('admin.')->group(function(){
         Route::resource('role',RoleController::class);

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -21,7 +23,9 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        return view('admin.dokter.create');
+        $users = User::all();
+        $roles = Role::all();
+        return view('admin.dokter.create', compact('roles', 'users'));
     }
 
     /**
@@ -33,7 +37,10 @@ class DoctorController extends Controller
             'name' => 'required|string',
             'specialization' => 'required|string'
         ]);
-        Doctor::create($request->all());
+        Doctor::create([
+            'name' => $request->name,
+            'specialization' => $request->specialization
+        ]);
         return redirect()->route('admin.dokter.index')->with('success',
             'data Dokter Berhasil di tambahkan');
     }
@@ -49,8 +56,9 @@ class DoctorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Doctor $dokter)
+    public function edit($id)
     {
+        $dokter = Doctor::findOrFail($id);
         return view('admin.dokter.edit',compact('dokter'));
     }
 
@@ -60,7 +68,7 @@ class DoctorController extends Controller
     public function update(Request $request, Doctor $dokter)
     {
         $request->validate([
-            'name' => 'required|string',
+            // 'name' => 'required|string',
             'specialization' => 'required|string'
         ]);
         $dokter->update($request->all());
